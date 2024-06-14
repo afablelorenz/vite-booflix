@@ -8,7 +8,7 @@ export default{
         return{
             filmList : [],
             filmApiUrl : 'https://api.themoviedb.org/3/search/movie',
-            filmListSearch : 'star',
+            filmListSearch : '',
             filmApiKey : '0d49198008396e97d715e909d25476c0',
         }
     },
@@ -18,12 +18,11 @@ export default{
                 params: {
                     api_key:this.filmApiKey,
                     query:this.filmListSearch,
-                    page:1
             },
             })
-            .then(function (response) {
-                console.log('entrato');
-                console.log(response);
+            .then(response =>{
+                console.log(response.data.results);
+                this.filmList= response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
@@ -34,7 +33,6 @@ export default{
         }
     },
     created(){
-        this.getFilmList();
     }
 }
 
@@ -42,10 +40,32 @@ export default{
 
 <template>
 <main>
-    <input>
-    <button>
-
+    <input v-model="filmListSearch" placeholder="Search a film">
+    <button @click="getFilmList">
+        Search
     </button>
+
+    <div>
+        <h3>
+            Search Results:
+        </h3>
+        <ul>
+            <li v-for="film in filmList" :key="film.id">
+                <p>
+                    Titolo: {{ film.title }}
+                </p>
+                <p>
+                    Titolo Originale: {{ film.original_title }}
+                </p>
+                <p>
+                    Lingua: {{ film.original_language }}
+                </p>
+                <p>
+                    Voto: {{ film.vote_average }}
+                </p>
+            </li>
+        </ul>
+    </div>
 </main>
 
 </template>
