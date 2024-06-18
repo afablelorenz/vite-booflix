@@ -1,0 +1,14 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+main {
+    padding: 1.5rem;
+    background-color: $primary-color;
+    color: $secondary-color;
+
+    .film-list {
+        @include flex-center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

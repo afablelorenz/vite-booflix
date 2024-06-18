@@ -1,0 +1,43 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+.film-item {
+    position: relative;
+    width: 10vw;
+    margin: 0.6rem;
+    @include flex-center;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.3rem;
+    }
+
+    .film-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: $secondary-color;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        @include flex-center;
+        flex-direction: column;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+
+    &:hover .film-info {
+        opacity:1;
+    }
+
+    .star {
+        color: $accent-color;
+    }
+}

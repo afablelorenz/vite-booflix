@@ -60,5 +60,6 @@ export default{
 <style lang="scss">
 
 @use '../styles/partials/flagIcons' as *;
+@use '../styles/partials/mainContent' as *;
 
 </style>

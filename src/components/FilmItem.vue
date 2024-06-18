@@ -7,16 +7,16 @@ export default{
         film: Object,
     },
     methods: {
-    getImageUrl(path){
-        const baseUrl = 'https://image.tmdb.org/t/p/';
-        const size = 'w342';
-        return `${baseUrl}${size}${path}`;
-        }
+        getImageUrl(path){
+            const baseUrl = 'https://image.tmdb.org/t/p/';
+            const size = 'w342';
+            return `${baseUrl}${size}${path}`;
+            }
     },
     computed: {
-    starRating() {
-        return Math.ceil(this.film.vote_average / 2);
-        }
+        starRating() {
+            return Math.ceil(this.film.vote_average / 2);
+            }
     },
     components:{
         FontAwesomeIcon,
@@ -26,7 +26,7 @@ export default{
 </script>
 
 <template>
-<div>
+<div class="film-item">
     <img :src="getImageUrl(film.poster_path)" :alt="film.title">
     <div class="film-info">
         <p><strong>Titolo:</strong> {{ film.title }}</p>
@@ -42,8 +42,8 @@ export default{
 </div>
 </template>
 
-<style>
-.star {
-    color: gold;
-}
+<style lang="scss">
+
+@use '../styles/partials/_filmItem';
+
 </style>

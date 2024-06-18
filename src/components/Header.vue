@@ -22,6 +22,6 @@ export default{
         <input v-model="searchQuery" @keyup.enter="search" placeholder="Search for movies or TV shows" >
     </header>
 </template>
-<style scoped>
-
+<style lang="scss">
+@use '../styles/partials/_header';
 </style>

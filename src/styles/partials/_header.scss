@@ -1,0 +1,21 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+header {
+    @include flex-center;
+    justify-content: space-between;
+    background-color: $header-background-color;
+    padding: 1rem 2rem;
+
+    .logo {
+        color: $secondary-color;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    input {
+        padding: 0.1rem;
+        font-size: 16px;
+        border: none;
+    }
+}
